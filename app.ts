@@ -26,7 +26,7 @@ const slackPayload = {
             "elements": [
                 {
                     "type": "mrkdwn",
-                    "text": events.map(e => `- ${e.link ? `<${e.link}|${e.title}>` : e.title} ${e.endDate.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}`).join("\n")
+                    "text": events.map(e => `- *${e.link ? `<${e.link}|${e.title}>` : e.title}*: ${e.endDate.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}`).join("\n")
                 }
             ]
         }
