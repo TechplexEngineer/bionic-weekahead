@@ -14,6 +14,10 @@
     "tsx": "^4.5.0"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.12"
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.3.1",
+    "lunartick": "^0.0.17",
+    "moment-timezone": "^0.5.43",
+    "node-ical": "^0.17.0"
   }
 }
