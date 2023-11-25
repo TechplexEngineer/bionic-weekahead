@@ -26,7 +26,7 @@ function filterEventsForThisWeek(events) {
                     let newDate;
                     if (event.rrule.origOptions.tzid) {
                         // tzid present (calculate offset from recurrence start)
-                        const dateTimezone = moment.tz.zone('America/New_York')
+                        const dateTimezone = moment.tz.zone('UTC')
                         if (!dateTimezone) {
                             throw new Error(`Invalid timezone: 'UTC'`)
                         }
@@ -44,7 +44,7 @@ function filterEventsForThisWeek(events) {
                         // console.log('moment(date).isDST()', moment(date).isDST());
                         // console.log('moment(dtstart).isDST()', moment(event.rrule.origOptions.dtstart).isDST());
 
-                        const offset = timezone.utcOffset(date.getTime()) - dateTimezone.utcOffset(event.rrule.origOptions.dtstart.getTime())
+                        const offset = timezone.utcOffset(date.getTime()) - timezone.utcOffset(event.rrule.origOptions.dtstart.getTime())
                         newDate = moment(date).add(offset, 'minutes').toDate()
                     } else {
                         // tzid not present (calculate offset from original start)                        
@@ -90,9 +90,9 @@ export async function getTeamCalendarEvents(icalUrl = calendarUrl) {
 }
 // console.log('Events for this week:\n');
 // eventsThisWeek.forEach(event => {
-//     console.log('Event:', event.summary);
-//     console.log('\tStart:', event.start.toLocaleString());
-//     console.log('\tEnd:', event.end.toLocaleString());
+//     console.log('Event:', event.title);
+//     console.log('\tStart:', event.startDate.toLocaleString());
+//     console.log('\tEnd:', event.endDate.toLocaleString());
 //     // console.log('\tRaw:', JSON.stringify(event, null, 4));
 //     console.log('------------------------');
 // });

@@ -8,8 +8,17 @@ const frcEvents = await getUpcomingWeekEvents();
 const teamEvents = await getTeamCalendarEvents();
 
 const events = [...frcEvents, ...teamEvents];
+// for (const event of events) {
+    
+//     console.log('Event:', event.title);
+//     console.log('\tStart:', event.startDate.toLocaleString());
+//     console.log('\tEnd:', event.endDate.toLocaleString());
+//     // console.log('\tRaw:', JSON.stringify(event, null, 4));
+//     console.log('------------------------');
+// }
 
-// Convert curl to fetch
+
+
 const slackUrl = process.env.SLACK_WEBHOOK_URL;
 const slackPayload = {
     // text: 'Hello, Slack!',
