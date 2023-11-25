@@ -1,8 +1,10 @@
 name: Send weekly update
 
 on:
-    schedule:
-        - cron: '0 5 * * 0' # This will run at 5 AM UTC every Sunday
+    workflow_dispatch:
+    push:
+        branches:
+            - main
 
 jobs:
     build:
@@ -23,4 +25,4 @@ jobs:
         - name: Run start script
           run: npm run start
           env:
-            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_TEST_WEBHOOK_URL }}
