@@ -1,4 +1,4 @@
-name: Send weekly update
+name: TEST Send weekly update
 
 on:
     workflow_dispatch:
